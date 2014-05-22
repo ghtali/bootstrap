@@ -71,8 +71,7 @@ window.onload = function () { // wait for load in a dumb way because B-0
     .error(function (err) {
       try {
         showError('<strong>Ruh roh!</strong> Could not save gist file, configuration not saved.', err)
-      }
-      catch (sameErr) {
+      } catch (sameErr) {
         // deliberately ignore the error
       }
       callback('<none>', '<none>')
@@ -312,10 +311,9 @@ window.onload = function () { // wait for load in a dumb way because B-0
 
     if (!$checked.length) return false
 
-    var js = $checked
-      .map(function () { return __js[this.value] })
-      .toArray()
-      .join('\n')
+    var js = $checked.map(function () {
+      return __js[this.value]
+    }).toArray().join('\n')
 
     preamble = cw + preamble
     js = jqueryCheck + js
@@ -417,8 +415,7 @@ window.onload = function () { // wait for load in a dumb way because B-0
       // than "blob:", which means it has been polyfilled and is not supported by
       // this browser.
       failback()
-    }
-    else {
+    } else {
       $('<img>')
         .on('load', function () {
           $compileBtn.prop('disabled', false)
